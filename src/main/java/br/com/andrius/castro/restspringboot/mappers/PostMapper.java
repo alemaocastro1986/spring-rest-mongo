@@ -10,7 +10,7 @@ public class PostMapper implements IMapper<Post, PostDTO> {
 
     @Override
     public PostDTO toDto(Post obj) {
-        return new PostDTO(obj.getId(), obj.getDate(), obj.getTitle(), obj.getContent(), obj.getAuthor());
+        return new PostDTO(obj.getId(), obj.getDate(), obj.getTitle(), obj.getContent(), obj.getAuthor(), obj.getComments());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package br.com.andrius.castro.restspringboot.config;
 
+import br.com.andrius.castro.restspringboot.dtos.CommentDTO;
 import br.com.andrius.castro.restspringboot.entities.Post;
 import br.com.andrius.castro.restspringboot.entities.User;
 import br.com.andrius.castro.restspringboot.mappers.AuthorMapper;
@@ -32,19 +33,31 @@ public class Database implements CommandLineRunner {
 
         User u1 = new User(null, "Ragnar Lothbrok", "ragnar@vikings.com");
         User u2 = new User(null, "Bjorn Lothbrok", "bjorn@vikings.com");
-        User u3 = new User(null, "Ivar lothbrok", "ragnar@vikings.com");
+        User u3 = new User(null, "Ivar lothbrok", "ivar@vikings.com");
 
-        userRepository.saveAll(Arrays.asList(u1,u2,u3));
+        userRepository.saveAll(Arrays.asList(u1, u2, u3));
 
         Post p1 = new Post(null, Instant.now(), "Partiu invadir Inglaterra",
                 "Vamos invadir Wessex, atrás de riquezas.", this.authorMapper.toDto(u1));
         Post p2 = new Post(null, Instant.now(), "Save Kattegat", "Vou lutar uma ultima vez.", this.authorMapper.toDto(u2));
 
-        postRepository.saveAll(Arrays.asList(p1,p2));
+        CommentDTO c1 = new CommentDTO("Vamos dominar esta terra pai.", Instant.now(),
+                this.authorMapper.toDto(u2));
+
+        CommentDTO c2 = new CommentDTO("Sem piedade.", Instant.now(),
+                this.authorMapper.toDto(u3));
+
+        CommentDTO c3 = new CommentDTO("Te espero em Valhala.", Instant.now(),
+                this.authorMapper.toDto(u1));
+
+        p1.getComments().addAll(Arrays.asList(c1, c2));
+        p2.getComments().add(c3);
+
+        postRepository.saveAll(Arrays.asList(p1, p2));
 
         u1.getPosts().add(p1);
         u2.getPosts().add(p2);
 
-        userRepository.saveAll(Arrays.asList(u1,u2));
+        userRepository.saveAll(Arrays.asList(u1, u2));
     }
 }

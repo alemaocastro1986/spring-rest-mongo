@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PostDTO implements Serializable {
     private String id;
@@ -15,16 +17,18 @@ public class PostDTO implements Serializable {
     private String content;
 
     private AuthorDTO author;
+    private List<CommentDTO> comments = new ArrayList<>();
 
     public PostDTO() {
     }
 
-    public PostDTO(String id, Instant date, String title, String content, AuthorDTO author) {
+    public PostDTO(String id, Instant date, String title, String content, AuthorDTO author, List<CommentDTO> comments) {
         this.id = id;
         this.date = date;
         this.title = title;
         this.content = content;
         this.author = author;
+        this.comments.addAll(comments);
     }
 
     public String getId() {
@@ -65,5 +69,9 @@ public class PostDTO implements Serializable {
 
     public void setAuthor(AuthorDTO author) {
         this.author = author;
+    }
+
+    public List<CommentDTO> getComments() {
+        return comments;
     }
 }
