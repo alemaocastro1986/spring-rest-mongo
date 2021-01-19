@@ -1,10 +1,9 @@
 package br.com.andrius.castro.restspringboot.dtos;
 
-import br.com.andrius.castro.restspringboot.core.User;
-
 import java.io.Serializable;
 
 public class UserDTO implements Serializable {
+
     private String id;
     private String name;
     private String email;
@@ -13,11 +12,13 @@ public class UserDTO implements Serializable {
 
     }
 
-    public UserDTO(User user){
-        this.id = user.getId();
-        this.name = user.getName();
-        this.email = user.getEmail();
+    public UserDTO(String id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
     }
+
+
 
     public String getId() {
         return id;

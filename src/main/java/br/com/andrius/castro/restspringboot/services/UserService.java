@@ -24,4 +24,8 @@ public class UserService {
         Optional<User> user = userRepository.findById(id);
         return user.orElseThrow(() -> new NotFoundException("User not found."));
     }
+
+    public User store(User user){
+        return this.userRepository.insert(user);
+    }
 }
