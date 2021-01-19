@@ -1,6 +1,6 @@
 package br.com.andrius.castro.restspringboot.resources;
 
-import br.com.andrius.castro.restspringboot.Mappers.UserMapper;
+import br.com.andrius.castro.restspringboot.mappers.UserMapper;
 import br.com.andrius.castro.restspringboot.core.User;
 import br.com.andrius.castro.restspringboot.dtos.UserDTO;
 import br.com.andrius.castro.restspringboot.services.UserService;
