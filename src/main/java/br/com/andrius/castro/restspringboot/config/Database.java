@@ -42,5 +42,9 @@ public class Database implements CommandLineRunner {
 
         postRepository.saveAll(Arrays.asList(p1,p2));
 
+        u1.getPosts().add(p1);
+        u2.getPosts().add(p2);
+
+        userRepository.saveAll(Arrays.asList(u1,u2));
     }
 }
