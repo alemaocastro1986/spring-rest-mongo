@@ -47,7 +47,7 @@ public class Database implements CommandLineRunner {
         CommentDTO c2 = new CommentDTO("Sem piedade.", Instant.now(),
                 this.authorMapper.toDto(u3));
 
-        CommentDTO c3 = new CommentDTO("Te espero em Valhala.", Instant.now(),
+        CommentDTO c3 = new CommentDTO("Te espero em Valhala.Onde vamos beber no grande salão de Odin", Instant.now(),
                 this.authorMapper.toDto(u1));
 
         p1.getComments().addAll(Arrays.asList(c1, c2));

@@ -10,6 +10,9 @@ import java.util.List;
 
 @Repository
 public interface PostRepository extends MongoRepository<Post, String> {
+    @Query("{ $or: [{ 'comments.content': { $regex: ?0, $options: 'i' } },{ title: { $regex: ?0, $options: 'i' } }]}")
+    List<Post> findByText(String text);
+
     @Query("{'comments.content':{ $regex: ?0, $options:'i'}}")
     List<Post> findByComment(String text);
 

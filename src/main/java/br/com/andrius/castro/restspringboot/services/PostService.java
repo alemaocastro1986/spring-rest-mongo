@@ -31,6 +31,10 @@ public class PostService {
         return postRepository.findByComment(text);
     }
 
+    public List<Post> findByAnyText(String text) {
+        return postRepository.findByText(text);
+    }
+
 
 
 }
