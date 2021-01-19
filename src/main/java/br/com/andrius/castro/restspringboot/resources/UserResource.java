@@ -37,6 +37,13 @@ public class UserResource {
         return ResponseEntity.ok().body(user);
     }
 
+    @GetMapping(value = "/email")
+    public ResponseEntity<UserDTO> showbyEmail(@RequestParam(name = "email") String email) {
+        UserDTO user = userMapper.toDto(this.userService.findByEmail(email));
+
+        return ResponseEntity.ok().body(user);
+    }
+
     @GetMapping(value = "/{id}/posts")
     public ResponseEntity<List<Post>> listPosts(@PathVariable String id) {
         User user = this.userService.findById(id);

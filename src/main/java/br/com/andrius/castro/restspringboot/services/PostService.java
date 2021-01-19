@@ -23,4 +23,10 @@ public class PostService {
         return post.orElseThrow(() -> new NotFoundException("User not found."));
     }
 
+    public List<Post> findByTitle(String text) {
+        return postRepository.findByTitleContainingIgnoreCase(text);
+    }
+
+
+
 }

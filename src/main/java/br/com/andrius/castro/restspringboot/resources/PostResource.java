@@ -8,6 +8,7 @@ import br.com.andrius.castro.restspringboot.mappers.PostMapper;
 import br.com.andrius.castro.restspringboot.mappers.UserMapper;
 import br.com.andrius.castro.restspringboot.services.PostService;
 import br.com.andrius.castro.restspringboot.services.UserService;
+import br.com.andrius.castro.restspringboot.utils.Url;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,5 +31,13 @@ public class PostResource {
         PostDTO post = postMapper.toDto(this.postService.findById(id));
 
         return ResponseEntity.ok().body(post);
+    }
+
+    @GetMapping(value = "/titleSearch")
+    public ResponseEntity<List<PostDTO>> findAllByTitle(@RequestParam(name = "text") String text) {
+        List<Post> postsByTitle = this.postService.findByTitle(Url.decode(text));
+        List<PostDTO> posts = postsByTitle.stream().map(p -> postMapper.toDto(p)).collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(posts);
     }
 }
