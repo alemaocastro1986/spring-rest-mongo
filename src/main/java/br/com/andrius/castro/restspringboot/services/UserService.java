@@ -25,7 +25,13 @@ public class UserService {
         return user.orElseThrow(() -> new NotFoundException("User not found."));
     }
 
-    public User store(User user){
+    public User store(User user) {
         return this.userRepository.insert(user);
+    }
+
+    public void destroy(String id) {
+        Optional<User> userExist = userRepository.findById(id);
+        id = userExist.orElseThrow(() -> new NotFoundException("User not found.")).getId();
+        this.userRepository.deleteById(id);
     }
 }
