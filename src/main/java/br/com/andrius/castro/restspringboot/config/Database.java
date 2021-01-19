@@ -39,7 +39,7 @@ public class Database implements CommandLineRunner {
 
         Post p1 = new Post(null, Instant.now(), "Partiu invadir Inglaterra",
                 "Vamos invadir Wessex, atrás de riquezas.", this.authorMapper.toDto(u1));
-        Post p2 = new Post(null, Instant.now(), "Save Kattegat", "Vou lutar uma ultima vez.", this.authorMapper.toDto(u2));
+        Post p2 = new Post(null, Instant.now(), "Partiu Salvar Kattegat", "Vou lutar uma ultima vez.", this.authorMapper.toDto(u2));
 
         CommentDTO c1 = new CommentDTO("Vamos dominar esta terra pai.", Instant.now(),
                 this.authorMapper.toDto(u2));
