@@ -1,6 +1,6 @@
 package br.com.andrius.castro.restspringboot.services;
 
-import br.com.andrius.castro.restspringboot.core.User;
+import br.com.andrius.castro.restspringboot.entities.User;
 
 import br.com.andrius.castro.restspringboot.exceptions.NotFoundException;
 import br.com.andrius.castro.restspringboot.repositories.UserRepository;

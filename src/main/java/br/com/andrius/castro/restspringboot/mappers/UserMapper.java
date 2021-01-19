@@ -1,6 +1,6 @@
 package br.com.andrius.castro.restspringboot.mappers;
 
-import br.com.andrius.castro.restspringboot.core.User;
+import br.com.andrius.castro.restspringboot.entities.User;
 import br.com.andrius.castro.restspringboot.dtos.UserDTO;
 import org.springframework.stereotype.Component;
 

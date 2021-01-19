@@ -1,4 +1,4 @@
-package br.com.andrius.castro.restspringboot.core;
+package br.com.andrius.castro.restspringboot.entities;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,7 +1,7 @@
 package br.com.andrius.castro.restspringboot.resources;
 
 import br.com.andrius.castro.restspringboot.mappers.UserMapper;
-import br.com.andrius.castro.restspringboot.core.User;
+import br.com.andrius.castro.restspringboot.entities.User;
 import br.com.andrius.castro.restspringboot.dtos.UserDTO;
 import br.com.andrius.castro.restspringboot.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
