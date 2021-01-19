@@ -40,4 +40,12 @@ public class PostResource {
 
         return ResponseEntity.ok().body(posts);
     }
+
+    @GetMapping(value = "/comment")
+    public ResponseEntity<List<PostDTO>> findAllByComment(@RequestParam(name = "text") String text) {
+        List<Post> postsByTitle = this.postService.findByComment(Url.decode(text));
+        List<PostDTO> posts = postsByTitle.stream().map(p -> postMapper.toDto(p)).collect(Collectors.toList());
+
+        return ResponseEntity.ok().body(posts);
+    }
 }

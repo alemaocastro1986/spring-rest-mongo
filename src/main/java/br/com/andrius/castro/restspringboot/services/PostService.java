@@ -27,6 +27,10 @@ public class PostService {
         return postRepository.findByTitleContainingIgnoreCase(text);
     }
 
+    public List<Post> findByComment(String text) {
+        return postRepository.findByComment(text);
+    }
+
 
 
 }
