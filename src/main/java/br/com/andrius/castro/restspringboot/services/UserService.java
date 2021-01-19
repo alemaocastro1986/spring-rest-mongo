@@ -29,6 +29,17 @@ public class UserService {
         return this.userRepository.insert(user);
     }
 
+    public User update(String id, User user) {
+        Optional<User> userExist = this.userRepository.findById(id);
+        User updateUser =  userExist.orElseThrow(() -> new NotFoundException("User not found."));
+
+        updateUser.setName(user.getName());
+        updateUser.setEmail(user.getEmail());
+
+        return this.userRepository.save(updateUser);
+    }
+
+
     public void destroy(String id) {
         Optional<User> userExist = userRepository.findById(id);
         id = userExist.orElseThrow(() -> new NotFoundException("User not found.")).getId();
