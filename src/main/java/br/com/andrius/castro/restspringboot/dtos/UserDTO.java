@@ -1,6 +1,7 @@
 package br.com.andrius.castro.restspringboot.dtos;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDTO implements Serializable {
 

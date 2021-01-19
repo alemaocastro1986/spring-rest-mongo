@@ -1,5 +1,6 @@
 package br.com.andrius.castro.restspringboot.resources;
 
+import br.com.andrius.castro.restspringboot.entities.Post;
 import br.com.andrius.castro.restspringboot.mappers.UserMapper;
 import br.com.andrius.castro.restspringboot.entities.User;
 import br.com.andrius.castro.restspringboot.dtos.UserDTO;
@@ -36,6 +37,13 @@ public class UserResource {
         return ResponseEntity.ok().body(user);
     }
 
+    @GetMapping(value = "/{id}/posts")
+    public ResponseEntity<List<Post>> listPosts(@PathVariable String id) {
+        User user = this.userService.findById(id);
+
+        return ResponseEntity.ok().body(user.getPosts());
+    }
+
     @PostMapping
     public ResponseEntity<UserDTO> store(@RequestBody UserDTO userDTO) {
         UserDTO user = userMapper.toDto(this.userService.store(this.userMapper.toEntity(userDTO)));
@@ -56,4 +64,6 @@ public class UserResource {
         this.userService.destroy(id);
         return ResponseEntity.noContent().build();
     }
+
+
 }
